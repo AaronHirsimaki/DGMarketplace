@@ -3,9 +3,13 @@
 	xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset= UTF-8">
+<link rel="stylesheet" type="text/css" media="all"
+	href="/styles/styles.css" th:href="@{/styles/styles.css}" />
 <title>Add New Disc!</title>
 </head>
 <body>
+	<div class="center">
+	<h1>Add New Disc</h1>
 	<form action="#" th:action="@{/adddisc}" method="post" th:object="${disc}">
 		<label>Disc name:</label>
 		<input type="text" th:field="${disc.name}"/><br/>
@@ -33,5 +37,7 @@
 		
 		<button type="submit">Save</button>
 	</form>
+		<a href="/disclist"><button>Go back</button></a>
+	</div>
 </body>
 </html>
