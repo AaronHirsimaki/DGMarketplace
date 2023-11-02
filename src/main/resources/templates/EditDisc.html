@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset= UTF-8">
+<title>Add New Disc!</title>
+</head>
+<body>
+	<form action="#" th:action="@{/editdisc}" method="post" th:object="${disc}">
+	
+		<input type="hidden" th:field="*{discId}"/>
+		
+		<label>Disc name:</label>
+		<input type="text" th:field="*{name}"/><br/>
+		
+		<label>Disc Manufacturer:</label>
+		<input type="text" th:field="*{manufacturer}"/><br/>
+		
+		<label>Disc Type:</label>
+		<input type="text" th:field="*{discType}"/><br/>
+		
+		<label>Disc colour:</label>
+		<input type="text" th:field="*{colour}"/><br/>
+		
+		<label>Speed:</label>
+		<input type="text" th:field="*{speed}"/><br/>
+		
+		<label>Glide:</label>
+		<input type="text" th:field="*{glide}"/><br/>
+		
+		<label>Turn:</label>
+		<input type="text" th:field="*{turn}"/><br/>
+		
+		<label>Fade:</label>
+		<input type="text" th:field="*{fade}"/><br/>
+		
+		<button type="submit">Save</button>
+	</form>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset= UTF-8">
+<title>Flightnumbers</title>
+</head>
+<body>
+<h1>
+	Flightnumbers
+</h1>
+<form action="">
+
+</form>
+<table>
+	<tr>
+		<td>Speed</td>
+		<td>Glide</td>
+		<td>Turn</td>
+		<td>Fade</td>
+	</tr>
+	<tr th:each = "flightnumbers:${flightnumberlist}">
+		<td th:text="${flightnumbers.speed}"></td>
+		<td th:text="${flightnumbers.glide}"></td>
+		<td th:text="${flightnumbers.turn}"></td>
+		<td th:text="${flightnumbers.fade}"></td>
+	</tr>
+</table>
+
+<a th:href="@{/addflighnumbers}">Add Flightnumbers</a>
+
+</body>
+</html>
