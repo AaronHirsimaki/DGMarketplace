@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset= UTF-8">
+<link rel="stylesheet" type="text/css" media="all"
+	href="/styles/styles.css" th:href="@{/styles/styles.css}" />
+<title>List Of Our Discs</title>
+</head>
+<body>
+
+	<div class="centerMainpage">
+
+		<h1>List Of Our Discs</h1>
+		<form action=""></form>
+		<table>
+			<tr>
+				<td>Name</td>
+				<td>Phone number</td>
+				<td>Email</td>
+	
+			</tr>
+			<tr th:object="${profile}">
+				<td th:text="${profile.name}"></td>
+				<td th:text="${profile.phone}"></td>
+				<td th:text="${profile.email}"></td>
+			</tr>
+		</table>
+
+		<a th:href="@{/adddisc}"><button>Add New Disc</button></a>
+
+	</div>
+
+</body>
+</html>

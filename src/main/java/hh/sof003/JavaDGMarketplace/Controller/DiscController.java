@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import hh.sof003.JavaDGMarketplace.Model.Disc;
+import hh.sof003.JavaDGMarketplace.Model.Profile;
 import hh.sof003.JavaDGMarketplace.Repository.DiscRepository;
+import hh.sof003.JavaDGMarketplace.Repository.ProfileRepository;
 
 
 @Controller
@@ -17,6 +19,9 @@ public class DiscController {
 	
 	@Autowired
 	DiscRepository discRepository;
+	
+	@Autowired
+	ProfileRepository profileRepository;
 	
 	//Home page
 	@GetMapping("/home")
@@ -68,6 +73,20 @@ public class DiscController {
     	Disc deleteDisc = discRepository.findById(Integer.parseInt(id));
     	discRepository.delete(deleteDisc);
     	return "redirect:/disclist";
+    }
+    
+    @GetMapping("/discpage/{id}")
+    public String doDiscPage(@PathVariable String id, Model model) {
+		Disc discPage = discRepository.findById(Integer.parseInt(id));
+		model.addAttribute("disc", discPage);
+    	return "/discpage";
+    }
+    
+    @GetMapping("/profilepage/{id}")
+    public String doProfilePage(@PathVariable String id, Model model) {
+    	Profile profilePage = profileRepository.findById(Integer.parseInt(id));
+    	model.addAttribute("profile", profilePage);
+    	return "/profilepage";
     }
 	
 }
