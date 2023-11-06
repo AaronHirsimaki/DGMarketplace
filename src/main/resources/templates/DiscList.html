@@ -18,23 +18,13 @@
 			<tr>
 				<td>Name</td>
 				<td>Manufacturer</td>
-				
-	
 			</tr>
 			<tr th:each="disc:${disclist}">
-				<!--<td th:text="${disc.name}"></td>-->
 				<td><a th:href="@{'/discpage/' + ${disc.discId}}" th:text="${disc.name}"></a></td>
 				<td th:text="${disc.manufacturer}"></td>
-				<td th:text="${}"></td>
-				<!-- <td th:text="${disc.discType}"></td>
-				<td th:text="${disc.colour}"></td>
-				<td th:text="${disc.speed}"></td>
-				<td th:text="${disc.glide}"></td>
-				<td th:text="${disc.turn}"></td>
-				<td th:text="${disc.fade}"></td> -->
-				<!-- <td><a th:href="@{'/editdisc/' + ${disc.discId}}"><button>Edit</button></a></td>
-				<td><a th:href="@{'/deletedisc/' + ${disc.discId}}"><button>Delete</button></a></td> -->
-				
+			</tr>
+			<tr th:each="profile:${profilelist}">
+				<td><a th:href="@{'/profilepage/' + ${profile.id}}" th:text="${profile.name}"></a></td>
 			</tr>
 		</table>
 

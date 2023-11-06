@@ -41,8 +41,11 @@
 		<input type="text" th:field="*{fade}"/><br/>
 		
 		<button type="submit">Save</button>
+		
 	</form>
-		<a href="/disclist"><button>Go back</button></a>
+	
+	<a th:href="@{'/discpage/' + ${disc.discId}}"><button>Go back</button></a>
+		
 	</div>
 </body>
 </html>
