@@ -12,26 +12,21 @@
 
 	<div class="centerMainpage">
 
-		<h1>List Of Our Discs</h1>
+		<h1>List Of Our Bags</h1>
 		<form action=""></form>
 		<table>
 			<tr>
 				<td>Name</td>
 				<td>Manufacturer</td>
 			</tr>
-			<tr th:each="disc:${disclist}">
-				<td><a th:href="@{'/discpage/' + ${disc.discId}}" th:text="${disc.name}"></a></td>
-				<td th:text="${disc.manufacturer}"></td>
-			</tr>
-			<tr th:each="profile:${profilelist}">
-				<td><a th:href="@{'/profilepage/' + ${profile.id}}" th:text="${profile.name}"></a></td>
+			<tr th:each="bag:${baglist}">
+				<td><a th:href="@{'/bagpage/' + ${bag.Id}}" th:text="${bag.name}"></a></td>
+				<td th:text="${bag.manufacturer}"></td>
 			</tr>
 		</table>
 
-		<a href="/adddisc"><button>Add New Disc</button></a>
-		
+		<a href="/addbag"><button>Add New Bag</button></a>
 		<a href="/home"><button>Home Page</button></a>
-		
 		<form th:action="@{/logout}" method="post">
             <input type="submit" value="Sign Out"/>
         </form>

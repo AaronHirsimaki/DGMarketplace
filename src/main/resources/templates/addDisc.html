@@ -12,28 +12,39 @@
 	<h1>Add New Disc</h1>
 	<form action="#" th:action="@{/adddisc}" method="post" th:object="${disc}">
 		<label>Disc name:</label>
-		<input type="text" th:field="${disc.name}"/><br/>
+		<input type="text" th:field="*{name}"/><br/>
+		<div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</div><br/>
+		
 		
 		<label>Disc Manufacturer:</label>
-		<input type="text" th:field="${disc.manufacturer}"/><br/>
-		
-		<label>Disc Type:</label>
-		<input type="text" th:field="${disc.discType}"/><br/>
+		<input type="text" th:field="*{manufacturer}"/><br/>
+		<div th:if="${#fields.hasErrors('manufacturer')}" th:errors="*{manufacturer}">Manufacturer Error</div><br/>
 		
 		<label>Disc colour:</label>
-		<input type="text" th:field="${disc.colour}"/><br/>
+		<input type="text" th:field="*{colour}"/><br/>
+		<div th:if="${#fields.hasErrors('colour')}" th:errors="*{colour}">Colour Error</div><br/>
 		
 		<label>Speed:</label>
-		<input type="text" th:field="${disc.speed}"/><br/>
+		<input type="text" th:field="*{speed}"/><br/>
+		<div th:if="${#fields.hasErrors('speed')}" th:errors="*{speed}">Speed Error</div><br/>
 		
 		<label>Glide:</label>
-		<input type="text" th:field="${disc.glide}"/><br/>
+		<input type="text" th:field="*{glide}"/><br/>
+		<div th:if="${#fields.hasErrors('glide')}" th:errors="*{glide}">Glide Error</div><br/>
 		
 		<label>Turn:</label>
-		<input type="text" th:field="${disc.turn}"/><br/>
+		<input type="text" th:field="*{turn}"/><br/>
+		<div th:if="${#fields.hasErrors('turn')}" th:errors="*{turn}">Turn Error</div><br/>
 		
 		<label>Fade:</label>
-		<input type="text" th:field="${disc.fade}"/><br/>
+		<input type="text" th:field="*{fade}"/><br/>
+		<div th:if="${#fields.hasErrors('fade')}" th:errors="*{fade}">Fade Error</div><br/>
+		
+		<label>Disc Type:</label>
+		<select th:field="*{discType}">
+		<option th:each="i : ${typelist}" th:value="${i.discId}" th:text="${i.discType}" />
+		</select><br/>
+		<div th:if="${#fields.hasErrors('discType')}" th:errors="*{discType}">Disc Type Error</div><br/>
 		
 		<button type="submit">Save</button>
 	</form>

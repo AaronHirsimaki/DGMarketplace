@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset= UTF-8">
 <link rel="stylesheet" type="text/css" media="all"
@@ -26,16 +27,16 @@
 
 				<td th:text="${disc.name}">Name</td>
 				<td th:text="${disc.manufacturer}">Manufacturer</td>
-				<td th:text="${disc.discType}">DIsc Type</td>
+				<td th:text="${disc.discType.discType}">Disc Type</td>
 				<td th:text="${disc.colour}">Disc Colour</td>
 				<td th:text="${disc.speed}">Speed</td>
 				<td th:text="${disc.glide}">Glide</td>
 				<td th:text="${disc.turn}">Turn</td>
 				<td th:text="${disc.fade}">Fade</td>
 
-				<td><a th:href="@{'/editdisc/' + ${disc.discId}}"><button>Edit</button></a></td>
+				<td sec:authorize="hasAuthority('ROLE_ADMIN')"><a th:href="@{'/editdisc/' + ${disc.discId}}"><button>Edit</button></a></td>
 
-				<td><a th:href="@{'/deletedisc/' + ${disc.discId}}"><button>Delete</button></a></td>
+				<td sec:authorize="hasAuthority('ROLE_ADMIN')"><a th:href="@{'/deletedisc/' + ${disc.discId}}"><button>Delete</button></a></td>
 
 			</tr>
 			

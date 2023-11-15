@@ -4,11 +4,15 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 
 @Entity
@@ -17,13 +21,35 @@ public class Disc {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int discId;
+	
+	@NotBlank(message="Name Required")
 	private String name;
+	
+	
+	@Column(name="manufacturer", nullable=false)
+	@NotNull(message="Manufacturer Required")
+	@NotBlank(message="Manufacturer Required")
 	private String manufacturer;
-	private String discType;
+	
+	
+    @ManyToOne(fetch = FetchType.EAGER)
+    @NotNull(message="Disc Type Required")
+    @JoinColumn(name = "discType", nullable=false)
+	private DiscType discType;
+	
+   @NotBlank(message="Colour Required") 
 	private String colour;
+    
+   @NotNull(message="Speed Number Required")
 	private int speed;
+    
+   @NotNull(message="Glide Number Required")
 	private int glide;
+    
+   @NotNull(message="Turn Number Required")
 	private int turn;
+    
+   @NotNull(message="Fade Number Required")
 	private int fade;
 
 	//To String method for disc
@@ -40,7 +66,7 @@ public class Disc {
 	}
 
 	//Constructor for disc
-	public Disc(String name, String manufacturer, String discType, String colour, int speed, int glide, int turn,
+	public Disc(String name, String manufacturer, DiscType discType, String colour, int speed, int glide, int turn,
 			int fade) {
 		super();
 		this.name = name;
@@ -74,12 +100,12 @@ public class Disc {
 	}
 
 
-	public String getDiscType() {
+	public DiscType getDiscType() {
 		return discType;
 	}
 
 
-	public void setDiscType(String discType) {
+	public void setDiscType(DiscType discType) {
 		this.discType = discType;
 	}
 

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+	<link rel="stylesheet" type="text/css" media="all" href="/css/styles.css" th:href="@{/css/styles.css}" />
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset= UTF-8">
+<link rel="stylesheet" type="text/css" media="all"
+	href="/styles/styles.css" th:href="@{/styles/styles.css}" />
+<title>Edit Bag!</title>
+</head>
+<body>
+
+	<div class = "centerDisclist">
+	<h1>Editor</h1>
+	<form action="#" th:action="@{/editbag}" method="post" th:object="${bag}">
+	
+		<input type="hidden" th:field="*{Id}"/>
+		
+		<label>Bag name:</label>
+		<input type="text" th:field="*{name}"/><br/>
+		
+		<label>Bag Manufacturer:</label>
+		<input type="text" th:field="*{manufacturer}"/><br/>
+		
+		<label>Bag Size:</label>
+		<input type="text" th:field="*{size}"/><br/>
+		
+		<button type="submit">Save</button>
+		
+	</form>
+		
+		<a th:href="@{'/bagpage/' + ${bag.Id}}"><button>Go back</button></a>
+	
+	</div>
+
+</body>
+</html>

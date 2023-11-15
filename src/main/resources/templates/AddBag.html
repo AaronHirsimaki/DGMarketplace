@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset= UTF-8">
+<link rel="stylesheet" type="text/css" media="all"
+	href="/styles/styles.css" th:href="@{/styles/styles.css}" />
+<title>Add New Bag!</title>
+</head>
+<body>
+	<div class="centerDisclist">
+	<h1>Add New Bag</h1>
+	<form action="#" th:action="@{/addbag}" method="post" th:object="${bag}">
+	
+		<label>Bag name:</label>
+		<input type="text" th:field="${bag.name}"/><br/>
+		<div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</div><br/>
+		
+		<label>Manufacturer:</label>
+		<input type="text" th:field="${bag.manufacturer}"/><br/>
+		<div th:if="${#fields.hasErrors('manufacturer')}" th:errors="*{manufacturer}">Manufacturer Error</div><br/>
+		
+		<label>Bag size:</label>
+		<input type="text" th:field="${bag.size}"/><br/>
+		<div th:if="${#fields.hasErrors('size')}" th:errors="*{size}">Size Error</div><br/>
+		
+		<button type="submit">Save</button>
+		
+	</form>
+	
+		<a href="/baglist"><button>Go back</button></a>
+		
+	</div>
+</body>
+</html>

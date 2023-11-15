@@ -104,3 +104,8 @@ email
 ,id
 ) 
 values (?,?,?,?,nextval('profile_seq'));
+
+INSERT INTO disc_type (disc_id, disc_type) VALUES (nextval('disc_type_seq'), 'Distance Driver');
+INSERT INTO disc_type (disc_id, disc_type) VALUES (nextval('disc_type_seq'), 'Fairway Driver');
+INSERT INTO disc_type (disc_id, disc_type) VALUES (nextval('disc_type_seq'), 'Midrange');
+INSERT INTO disc_type (disc_id, disc_type) VALUES (nextval('disc_type_seq'), 'Putter');

@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset= UTF-8">
 <link rel="stylesheet" type="text/css" media="all"
 	href="/styles/styles.css" th:href="@{/styles/styles.css}" />
-<title>Add New Disc!</title>
+<title>Edit Disc!</title>
 </head>
 <body>
 	
@@ -23,7 +23,9 @@
 		<input type="text" th:field="*{manufacturer}"/><br/>
 		
 		<label>Disc Type:</label>
-		<input type="text" th:field="*{discType}"/><br/>
+		<select th:field="*{discType}">
+		<option th:each="i : ${typelist}" th:value="${i.discId}" th:text="${i.discType}" />
+		</select><br/>
 		
 		<label>Disc colour:</label>
 		<input type="text" th:field="*{colour}"/><br/>
